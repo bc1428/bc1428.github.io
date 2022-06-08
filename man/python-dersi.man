@@ -1,0 +1,1109 @@
+.\" Man page generated from reStructuredText.
+.
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.TH "PYTHON DERSI"  "" "" ""
+.SH NAME
+Python dersi \- 
+.sp
+Bu yazıda python programlama dilini hızlıca anlatacağım. Bu yazıda karıştırılmaması için girdilerin olduğu satırlar \fI<\-\fP ile çıktıların olduğu satırlar \fI\->\fP ile işaretlenmiştir.
+.SH AÇIKLAMA SATIRLARI
+.sp
+Python programlama dilinde açıklamalar \fB#\fP işaretinden sonrası için geçerlidir. Örneğin:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+#bu bir açıklama satırıdır.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bununla birlikte çoklu açıklama satırı yapmak için \fB"""\fP işareti arasına alabiliriz.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+""" Bu bir açıklama satırı
+Bu diğer açıklama satırı
+Bu son açıklama satırı """
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH TEMEL BILGILER
+.sp
+Python programlarının ilk satırında \fB#!/usr/bin/python3\fP satırı bulunmalıdır.
+Bir python programını çalıştırmak için Şunları uygulamamız gereklidir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+#!/usr/bin/python3
+# Çalıştırma izni vererek çalıştırabiliriz.
+chmod +x dosya.py
+\&./dosya.py
+# Veya doğrudan çalıştırabiliriz.
+python3 dosya.py
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Python programlama dilinde satır sonuna \fB;\fP koyulmaz.
+.sp
+Python programlarında işler işlevler üzerinden yürür. işlevlerin girdileri ve çıktıları bulunur.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+cikti = islev(girdi1, girdi2)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Pythonda girintileme olayı için de \fB{\fP ve \fB}\fP kullanılmak yerine boşluklandırma kullanılır. Herhangi bir girintilemeye başlanan satırın sonunda \fB:\fP işareti bulunur. Örneğin:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+f = 12 # f sayısını 12ye eşitledik
+if f == 12: # f sayısı 12ye eşit mi diye sorguladık
+    print("eşit") # ekrana yazı yazdırık
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Girintileme için 4 boşluk, 2 boşluk veya tek tab kullanabilirsiniz. Bu yazıda 4 boşluğu tercih edeceğiz.
+.SH YAZI YAZDIRMA
+.sp
+Pythonda ekrana yazı yazmak için \fBprint\fP işlevini kullanıyoruz.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+print("Merhaba Dünya")
+\-> Merhaba Dünya
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Birden çok ifadeyi yazdırmak için \fBprint\fP işlevine birden çok girdi verebilirsiniz. Bu şekilde aralarına birer boşluk koyarak yazdırır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# Yazılar tırnak içine alınır.
+# Sayılar tırnak içine alınmaz.
+# True ve False doğruluk belirtir.
+print("Merhaba",12,"Dünya",True)
+\-> Merhaba 12 Dünya True
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH DEĞIŞKENLER
+.sp
+Değişkenler içerisinde veri bulunduran ve ihtiyaç durumunda bu veriyi düzenleme imkanı tanıyan kavramlardır.
+Değişkenler tanımlanırken \fBdegisken = deger\fP şeklinde bir ifade kulanılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+i = 12
+yazi = "merhaba dünya"
+k = 1.2
+hmm = True
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Değişken adları sayı ile başlayamaz, Türkçe karakter içeremez ve sadece harfler, sayılar ve \fB\-\fP \fB_\fP karakterlerinden oluşur.
+.sp
+Değişkenler kullanılırken başına herhangi bir işaret almasına gerek yoktur. Örneğin:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+i = 12
+print(i)
+\-> 12
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Değişkenler tanımlanırken her ne kadar türlerini belirtmesek bile birer türe sahip olarak tanımlanır. Bunlar başlıca \fBinteger\fP, \fBfloat\fP, \fBstring\fP, \fBboolean\fP türleridir.
+.sp
+Bir değişkenin türünü öğrenmek için \fBtype\fP işlevini kullanabiliriz.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = "abc123"
+turu = type(veri)
+print(turu)
+\-> <class \(aqstr\(aq>
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Boş bir değişken tanımlamak için onun değerine \fBNone\fP atayabiliriz. Bu sayede değişken tanımlanmış fakar değeri atanmamış olur.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = None
+tur = type(veri)
+print(tur)
+\-> <class \(aqNoneType\(aq>
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS String
+.sp
+String türünden değişkenler yazı içerir. \fB"\fP veya \fB\(aq\fP veya \fB"""\fP arasına yazılırarak tanımlanır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+yazi1 = "merhaba"
+yazi2 = \(aqyazım\(aq
+yazi3 = """dünya"""
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+String türünden değişkenler \fB+\fP işareti ile uc uca eklenebilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+yazi = "merhaba" + \(aq \(aq + """dünya"""
+print(yazi)
+\-> merhaba dünya
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Değişkeni birden çok kez toplamak için \fB*\fP işareti kullanılabilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+yazi = "ali"*5
+print(yazi)
+\-> alialialialiali
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+String türünden bir değişkenin içerisindeki bir bölümü başka bir şey ile değiştirmek için \fBreplace\fP işlevi kullanılınabilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = "Merhaba"
+veri2 = veri\&.replace("rha","123")
+print(veri2)
+\-> Me123ba
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Integer
+.sp
+Integer türünden değişkenler tam sayı belirtir. Dört işlem işaretleri ile işleme sokulabilirler.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sayi = (((24/2)+4)*2)\-1
+"""
+24/2 = 12
+12+4 = 16
+16*2 = 32
+32\-1 = 31
+"""
+print(sayi)
+\-> 31
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Integer değişkenlerin kuvvetlerini almak için \fB**\fP kullanılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sayi = 2**3
+print(sayi)
+\-> 8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+String türünden bir değişkeni integer haline getirmek için \fBint\fP işlevi kullanılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+print(int("12")/2)
+\-> 6
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Float
+.sp
+Float türünden değişkenler virgüllü sayılardır. Aynı integer sayılar gibi dört işleme sokulabilirler. İki integer değişkenin birbirine bölümü ile float oluşabilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sayi = 1/2 # sayi = 0.5 şeklinde de tanımlanabilir.
+print(sayi)
+\-> 0.5
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bir float değişkenini integer haline getirmek için \fBint\fP işlevi kullanılır. Bu dönüşümde virgülden sonraki kısım atılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+sayi = 3.2
+print(sayi)
+sayi2 = int(3.2)
+print(sayi2)
+\-> 3.2
+\-> 3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBNot:\fP float ile string çarpılamaz.
+.sp
+String türünden bir değişkeni float haline getirmek için \fBfloat\fP işlevi kullanılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+print(float("2.2")/2)
+\-> 1.1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Boolean
+.sp
+Boolean değişkenler sadece \fBTrue\fP veya \fBFalse\fP değerlerini alabilir. Bu değişken daha çok koşullarda ve döngülerde kullanılır. iki değişkenin eşitliği sorgulanarak boolean üretilebilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+bool = 12 == 13
+"""
+== eşit
+!= eşit değil
+<  küçük
+>  büyük
+<= küçük eşit
+>= büyük eşit
+"""
+print(bool)
+\-> False
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+boolean değişkeninin tersini almak için \fBnot\fP ifadesi kullanılabilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = not True
+print(veri)
+\-> False
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bir string türünden değişkenin içinde başka bir string türünden değişken var mı diye kontrol etmek için \fBin\fP ifadesi kullanılır. Bu ifadenin sonucu boolean üretir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = "ef" in "Dünya"
+veri2 = "ny" in "Dünya"
+print(veri,veri2)
+\-> False True
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Boolean değişkenlerde mantıksal işlemler \fBand\fP ve \fBor\fP ifadeleri ile yapılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = 12 < 6 or 4 > 2 # False or True = True
+print(veri)
+\-> True
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH KLAVYEDEN DEĞER ALMA
+.sp
+Python programlarının kullanıcı ile etkileşime girmesi için klavye üzerinden kullanıcıdan değer alması gerekebilir. Bunun için \fBinput\fP işlevi kullanılır. Bu işlevin çıkışı string türündendir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = input("Bir değer girin >")
+print(a,type(a))
+<\- 12
+\-> 12 <class \(aqstr\(aq>
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+String türünden bir ifadeyi bir değişken üretmek için kullanmak istiyorsak \fBeval\fP işlevini kullanabiliriz.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = eval("12/2 == 16\-10") # string ifade çalıştırılır ve sonucu aktarılır.
+print(a)
+\-> True
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBNot:\fP Bu işlev tehlikelidir. Potansiyel güvenlik açığına neden olabilir! Mümkün olduğu kadar kullanmayın :D
+.SH KOŞULLAR
+.sp
+Koşul tanımı yapmak için \fBif\fP ifadesi kullanılır. Koşul sağlanmıyorsa \fBelif\fP ifadesi ile yeni bir koşul tanımlanabilir veya \fBelse\fP ifadesi ile koşulun sağlanmadığı durum tanımlanabilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+if koşul:
+    eylem
+elif koşul:
+    eylem
+else:
+    eylem
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Örneğin bir integer değişkenin çift olup olmadığını bulalım.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+if 13 % 2 == 0 : # % işareti bölümden kalanı bulmaya yarar.
+    print("Çift sayı")
+else:
+    print("Tek sayı")
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Değeri olmayan (None) değişkenler koşul ifadelerinde \fBFalse\fP olarak kabul edilir.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = None
+if veri:
+    print("Tanımlı")
+else:
+    print("Tanımsız")
+\-> Tanımsız
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Koşul tanımlamayı alternatif olarak şu şekilde de yapabiliriz:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+koşul and eylem
+""" Şununla aynıdır:
+if koşul:
+    eylem
+"""
+koşul or eylem
+""" Şununla aynıdır:
+if not koşul:
+    eylem
+"""
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bu konunun daha iyi anlaşılması için:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+12 == 12 and print("eşittir")
+12 == 14 or print("eşit değildir")
+\-> eşittir
+\-> eşit değildir
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH WHILE DÖNGÜSÜ
+.sp
+Döngüler belli bir işi koşul bağlanana kadar tekrar etmeye yarayan işlevdir. Kısaca \fBwhile\fP döngüsü ile \fBif\fP arasındaki fark \fBwhile\fP içerisindeki durum tamamlandığı zaman tekrar başa dönüp koşulu kontrol eder.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+while koşul:
+    eylem
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Örneğin 1den 10a kadar olan sayıları yazalım. Bu durumda \fIi\fP sayısı 10 olana kadar sürekli olarak ekrana yazılıp değeri 1 arttırılacakdır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+i = 1
+while i < 10:
+    print(i)
+    i+=1 # i = i + 1 ile aynı anlama gelir.
+\-> 1 2 3 4 5 6 7 8 9 (Bunu alt alta yazdığını hayal edin :D )
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH DIZILER
+.sp
+Diziler birden çok elemanı içerebilen değişkenlerdir. Diziler aşağıdaki gibi tanımlanır:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = [1, 3, "merhaba", True, 1.2, None]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Dizilerin elemanlarının türü aynı olmak zorunda değildir. Hatta None bile olabilir.
+.sp
+Dizilerde eleman eklemek için \fBappend\fP veya \fBinsert\fP işlevini eleman silmek için ise \fBremove\fP  veya \fBpop\fP işlevi kullanılır. Örneğin:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = [22]
+print(a)
+a\&.append("Merhaba") # Sona ekleme yapar.
+a\&.insert(0,12) # 0 elemanın ekleneceği yeri ifade eder.
+print(a)
+a\&.remove(22) # 22 elemanını siler
+print(a)
+a\&.pop(0) # 0. elemanı siler.
+print(a)
+\-> [22]
+\-> [12, 22, \(aqMerhaba\(aq]
+\-> [12, \(aqMerhaba\(aq]
+\-> [\(aqMerhaba\(aq]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Dizileri sıralamak için \fBsort\fP boşaltmak için ise \fBclear\fP işlevi kullanılır.  Bir dizinin istenilen elemanını öğrenmek için \fBliste[index]\fP şeklinde bir ifade kullanılır. Index numaraları 0dan başyan integer olmalıdır. negatif değerlerde sondan saymaya başlar.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = [1, 3, 6, 4, 7, 9, 2]
+print(a[2],a[\-3])
+a\&.sort()
+print(a)
+a\&.clear()
+print(a)
+\-> 3 7
+\-> [1, 2, 3, 4, 6, 7, 9]
+\-> []
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Dizideki bir elemanın uzunluğunu bulmak için \fBlen\fP işlevi, elemanın dizinin kaçıncısı olduğunu bulmak için ise \fBindex\fP işlevi kullanılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = [12, "hmm", 3.2]
+sayi = len(a)
+sayi2 = a\&.index(3.2)
+print(sayi,sayi2)
+\-> 3
+\-> 2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Dizilerin elemanlarını \fB+\fP kullanarak birleştirebiliriz.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = a + b
+print(c)
+\-> [1, 2, 3, 4, 5, 6]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Dizilerin bir bölümünü aşağıdakine benzer yolla kesebiliriz:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = [1, 3, 5, 7, 9, 12, 44, 31, 16]
+b = a[:2] # baştan 3. elemana kadar.
+c = a[4:] # 4. elemandan sonrası
+d = a[3:6] # 4. elemandan 6. elemana kadar (dahil)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+String türünden bir değişkeni belli bir harf veya harf öbeğine göre bölmek için \fBsplit\fP işlevini kullanırız. Ayrıca string türünden bir değişkenin başındaki ve sonundaki boşlukları temizlemek için \fBstrip\fP işlevini kullanırız.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri="   Bu bir yazıdır   "
+veri2 = veri\&.strip()
+print(len(veri),len(veri2))
+liste = veri2\&.split(" ")
+print(liste)
+\-> 20 14
+\-> [\(aqBu\(aq, \(aqbir\(aq, \(aqyazıdır\(aq]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH FOR DÖNGÜSÜ
+.sp
+For döngüsü while ile benzerdir fakat koşul aranmak yerine iteration yapar. Bu işlemde bir dizinin bütün elemanları tek tek işleme koyulur. Aşağıdaki gibi bir kullanımı vardır:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+for eleman in dizi:
+    eylem
+# Şununla aynıdır
+i = 0
+toplam = len(dizi)
+while i < toplam: # eleman yerine dizi[i] kullanabilirsiniz.
+    eylem
+    i += 1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Örneğin bir integer değişkenlerden oluşan dizi oluşturalım ve elemanlarını 2ye bölerek ayrı bir diziye ekleyelim.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+a = [2, 4, 6, 8, 10] # dizi tanımladık
+b = [] # diğer diziyi tanımladık
+for i in a: # a elemanları i içine atılacak
+    b\&.append(i/2) # b içine elemanın yarısını ekledik.
+print(b)
+\-> [1, 2, 3, 4, 5]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Eğer dizi yerine string türünden bir değişken verirsek elemanlar bu stringin harfleri olacaktır. Aşağıdaki örnekte string içerisinde kaç tane a veya e harfi bulunduğunu hesaplayalım.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+veri = "Merhaba Dünya"
+toplam = 0
+for i in veri:
+    if i == "a" or i == "e":
+        toplam += 1
+print(toplam)
+\-> 4
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Şimdiye kadarki anlatılanların daha iyi anlaşılması için asal sayı hesaplayan bir python kodu yazalım:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+asallar = [2] # ilk asal sayıyı elle yazdık.
+i = 2 # Şu anki sayı
+while i < 60: # 60a kadar say
+    hmm = True # asal sayı mı diye bakılan değişken
+    for e in asallar: # asal sayılar listesi elemanları
+        if i % e == 0: # tam bölünüyor mu
+            hmm = False # asal sayı değildir
+    if hmm: # Asal sayıysa diziye ekleyelim
+        asallar\&.append(i)
+    i += 1 # mevcut sayımızı 1 arttıralım.
+print(asallar) # 60a kadar olan asal sayılar dizisini yazalım.
+\-> [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH İŞLEVLER
+.sp
+Python programlarken işlev tanımlayıp daha sonra bu işlevi kullanabiliriz. İşlevler aşağıdaki gibi tanımlanırlar:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+def islev(girdi1,girdi2):
+    eylem
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+işlevlerde çıktı sonucu olarak bir değişken döndürmek için \fBreturn\fP ifadesi kullanılır. Örneğin girdideki sayıları toplayan işlev yazalım.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+def topla(sayi1,sayi2):
+    return sayi1 + sayi2
+    print("Merhaba") # bu satır çalıştırılmaz
+toplam = topla(3,5)
+print(toplam)
+\-> 8
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Eğer bir değişken sadece işlevin içerisinde tanımlanırsa o değişken işlevin dışında tanımsız olur.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+def yazdir():
+    yazi = "Merhaba"
+    print(yazi)
+yazdir()
+print(yazi)
+\-> Merhaba
+\-> Traceback (most recent call last):
+\->   File "ders.py", line 5, in <module>
+\->     print(yazi)
+\-> NameError: name \(aqyazi\(aq is not defined
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bir işlevin ne işe yaradığını öğrenmek için \fBhelp\fP işlevi kullanılır. işlevin ne işe yaradığını tanımlamak için ise ilk satıra \fB"""\fP içerisine yazabiliriz. Bunu tanımlamak programınızı inceleyen diğer insanlar için yararlı olacaktır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+def abc(sayi):
+    """Girilen sayıyı 10dan çıkartır"""
+    return 10\-sayi
+help(abc)
+\->  Help on function abc in module __main__:
+\->
+\->  abc(sayi)
+\->      Girilen sayıyı 10dan çıkartır
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bir işlevin birden çok çıktısı olabilir. Bunun için \fBreturn\fP ifadesini virgülle ayrılmış olarak birden çok değişken ile kullanmalıyız.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+def yer_degistir(a,b):
+    """Girilen değişkenlerin yerini değiştirir"""
+    return b,a
+c = 12
+d = 31
+c,d = yer_degistir(c,d)
+# Bunun yerine doğrudan c,d = d,c kullanılabilirdi.
+print(c,d)
+\-> 31 12
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH SINIFLAR
+.sp
+Sınıf kavramı işlevlerin ve değişkenlerin guruplanarak nesneler haline getirilmesinden meydana gelir. Yani bir sınıf ona bağlı işlevlerden ve değişkenlerden oluşur. Sınıflar aşağıdaki gibi tanımlanırlar.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+class sinif:
+    def __init__(self,girdi):
+        eylem
+    def islev(self,girdi):
+        eylem
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Burada \fB__init__\fP işlevi sınıfı oluştururken çalıştırılan ilk eylemleri tanımlamak için kullanılır. sınıf işlevleri tanımlanırken ilk girdi olarak \fBself\fP kullanılmalıdır. Bu ifade sınıfın kendisi anlamına gelir. Örneğin bir sınıf tanımlayalım ve bu sınıftaki işlevler ile girdideki sayılara toplama ve çıkartma işlemi uygulayalım.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+class sayi_isle:
+    def __init__(self,ilk,ikinci):
+        self\&.sayi1 = ilk
+        self\&.sayi2 = ikinci
+    def topla():
+        return self\&.sayi1 + self\&.sayi2
+    def cikart():
+        return self\&.sayi1 \- self\&.sayi2
+
+nesne = sayi_isle(12,3)
+a = nesne\&.topla()
+b = nesne\&.cikart()
+print(a,b)
+\-> 15 9
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Burada işlevlere \fBnesne.islev()\fP ifadesi ile erişebiliyoruz. Aynı zamanda değişkenlere de \fBnesne.degisken\fP ifadesi ile erişmemiz ve değiştirmemiz mümkündür. Sınıf içerisinden ise \fBself.islev()\fP ve \fBself.degisken\fP şeklinde bir ifade kullanmamız gerekmektedir.
+.SH DOSYA IŞLEMLERI
+.sp
+Bir dosyayı açmak için \fBopen\fP işlevi kullanılır. Açılan dosyadan satır okumak için \fBreadline\fP işlevi, tamamını okumak için \fBread\fP işlevi, tüm satırları okuyup dizi haline getirmek için ise \fBreadlines\fP işlevi kullanılır.
+.sp
+deneme.txt adında içeriği aşağıdaki gibi olan bir doysamız olsun:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Merhaba dünya
+Selam dünya
+sayı:123
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Aşağıdaki örnekte bu dosyayı açıp okuyup ekrana basalım.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dosya = open("dosya.txt","r") # okumak için r kullanılır.
+ilksatir = dosya\&.readline()
+tumu = dosya\&.read()
+satirlar = dosya\&.readlines()
+print(len(satirlar))
+\-> 3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Dosyaya yazmak için ise \fBwrite\fP işlevi kullanılır. Okuma ve yazma işlemleri bittikten sonra \fBclose\fP işlevi ile dosya kapatılmalıdır. Dosyayı kapatmadan değişiklikleri diske işletmek için \fBflush\fP işlevi kullanılır.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dosya = open("dosya.txt","w") # yazmak için w eklemek için a kullanılır.
+dosya\&.write("Merhaba dünya\en")
+dosya\&.write("Selam dünya\en")
+dosya\&.write("sayı:123\en")
+dosya\&.close()
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH MODÜLLER
+.sp
+Python programlarında kodların markaşıklaşmasını önlemek ve daha kullanışlı hale getirmek amacıyla modüller bulunur. Modüller \fBimport\fP ifadesi ile çağırılır. Modüller aslında birer Birer python kütüphanesidir ve sınıf sayılırlar. Örneğin deneme.py dosyamızda aşağıdaki kodlar bulunsun:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+yazi = "Merhaba"
+sayi = 12
+def yazdir():
+    print(yazi)
+class sinif:
+    def islev(self):
+        print("selam")
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Şimdi bu modülümüzü çağırıp içerisindeki işlevleri ve değişkenleri kullanalım.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+import deneme # deneme modülünü çağırdık
+print(deneme\&.yazi) # değişkeni kullandık
+deneme\&.yazdir() # işlevi kullandık.
+deneme\&.sayi = 76 # değişkeni değiştirdik
+nesne = deneme\&.sinif() # sınıftan nesne oluşturduk
+nesne\&.islev() # nesneyi kullandık
+\-> Merhaba
+\-> selam
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Şimdiye kadar anlatılanların daha iyi anlaşılması için aşağıda ini parser örneği yapalım. Örnek bir ini dosyası aşağıdaki gibidir:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[bölüm1]
+veri1=deger1
+veri2=deger2
+[bölüm2]
+veri3=deger3
+veri4=deger4
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bir adet modül yazıp bu modül ile ini dosyası okuyup istenilen bölümdeki değeri bulalım ve döndürelim.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[Merhaba]
+dünya=12
+selam=44
+[hmm]
+veri=abc123x
+sayı=44
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# iniparser.py içeriği
+dosya = None # boş dosya nesnesi
+class inidosya:
+    def __init__(self,yol):
+        ini = open(yol,"r") # ini dosyasını açtık
+        self\&.icerik = ini\&.read() # dosya içeriğini okuduk
+    def deger_al(bolum,veri):
+        etkin = False # istenilen yere gelene kadar etkisiz kal
+        for satir in dosya\&.icerik\&.split("\en"):
+            if "[" + bolum + "]" in satir: # okunan satırda istenilen bölümün başı mı
+                etkin = True # etkinleştir
+            if etkin and "=" in satir: # etkinse ve satırda = bulunuyorsa
+                if satir\&.split("=")[0] == veri: # = işaretine göre 0. eleman aranan mı
+                    return satir\&.split("=")[0] # = işaretine göre böl . elemanı al
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# main.py dosyası içeriği
+import iniparser # modülü yükle
+iniparser\&.dosya = iniparser\&.inidosya("dosya") # ini dosyasını yükle
+deger=iniparser\&.deger_al("hmm","veri") # değeri al
+print(deger\&.strip()) # değerin başında sonunda boşluk varsa sil ve yaz
+\-> abc123x
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Bir modülü diğer bir modülün genişletilmişi olarak tanımlayabiliriz. Gelişletilen modül asıl modüldeki tüm fonksiyonlara ve değişkenlere sahip olur. Aşağıdaki örnekteki gibi \fBsuper().__init__()\fP kullanarak üst modülümüzdeki tüm tanımlamalara sahip olmasını sağlayabiliriz.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# ornek.py dosyası
+class deneme:
+    def __init__(self):
+        self\&.sayi = 13
+    def hmm(self,yazi):
+        print(yazi)
+
+class genis(deneme):
+    def __init__(self):
+        super()\&.__init__()
+        self\&.sayi2 = 44
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+# main.py dosyası
+from ornek import genis as g # ornek.py dosyasındaki genis sınıfını g olarak içeri aldık.
+print(g\&.sayi, g\&.sayi2)
+g\&.hmm("abc123")
+\-> 13 44
+\-> abc123
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.\" Generated by docutils manpage writer.
+.
