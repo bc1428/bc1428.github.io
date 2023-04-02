@@ -1,0 +1,74 @@
+body{
+	background: #99fff9;
+}
+
+.sign-box{
+	width: auto;
+	height: auto;
+	min-height: 300px;
+	min-width: 300px;
+	color: white;
+	top: 50%;
+	left: 50%;
+	padding: 70px 30px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	text-align: center;
+	margin: auto;
+	border-radius: 50px;
+	background: rgba(0, 0, 0, 0.7);
+	box-shadow: 0px 0px 55px 35px rgba(0, 0, 0, 0.29);
+}
+
+.sign-box #input-group #email, #pass, #name, #surname{
+	opacity: 75%;
+	background: black;
+	color: white;
+	border-radius: 10px;
+	border: none;
+	width: 95%;
+	margin-top: 12px;
+	height: 30px;
+	color: white;
+}
+
+.sign-box #input-group #name, #surname{
+	width: 47%;
+	margin: auto;
+	display: none;
+}
+
+.sign-box #input-group input[type="submit"], input[type="button"]{
+	border: none;
+	height: 30px;
+	background: black;
+	color: white;
+	font-size: 18px;
+	border-radius: 20px;
+	display: inline;
+	opacity: 75%;
+	width: 45%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.sign-box #input-group input[value="Kayıt Ol"]{
+	background: darkred;
+}
+
+.sign-box #input-group input[type="submit"]:hover, input[type="button"]:hover{
+	opacity: 100%;
+}
+
+.sign-box #input-group{
+	position: relative;
+	margin: auto;
+}
+
+h3{
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 25px;
+}
+
